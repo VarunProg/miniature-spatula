@@ -46,7 +46,8 @@ export const UserDetails: FC = () => {
     key: string
   ) => {
     let customerUpdatedData = { ...customerData };
-    customerUpdatedData[key] = event.currentTarget.value;
+    customerUpdatedData[key as keyof typeof customerData] =
+      event.currentTarget.value;
     setCustomerData(customerUpdatedData);
     validateForm();
   };
@@ -60,19 +61,20 @@ export const UserDetails: FC = () => {
     let updatedFormErrors = { ...formErrors };
     let isFormValid = true;
     Object.keys(customerData).forEach((key: string) => {
-      if (customerData[key] === "") {
-        updatedFormErrors[key].isValid = false;
-        updatedFormErrors[key].errorMsg =
-          "Please enter " + updatedFormErrors[key].label;
+      const errObjKey = key as keyof typeof updatedFormErrors;
+      if (customerData[key as keyof typeof customerData] === "") {
+        updatedFormErrors[errObjKey].isValid = false;
+        updatedFormErrors[errObjKey].errorMsg =
+          "Please enter " + updatedFormErrors[errObjKey].label;
         isFormValid = false;
       } else if (key === "email" && !validateEmail(customerData[key])) {
-        updatedFormErrors[key].isValid = false;
-        updatedFormErrors[key].errorMsg =
+        updatedFormErrors[errObjKey].isValid = false;
+        updatedFormErrors[errObjKey].errorMsg =
           "Please enter valid " + updatedFormErrors[key].label;
         isFormValid = false;
       } else {
-        updatedFormErrors[key].isValid = true;
-        updatedFormErrors[key].errorMsg = "";
+        updatedFormErrors[errObjKey].isValid = true;
+        updatedFormErrors[errObjKey].errorMsg = "";
       }
     });
     setFormErrors(updatedFormErrors);
@@ -84,27 +86,15 @@ export const UserDetails: FC = () => {
     if (isValidData) {
       const requestData = {
         ...customerData,
-        selectedRecipes,
+        recipes: [...selectedRecipes],
       };
       confirmOrder(requestData)
         .then((resp) => {
-          // To Be Changed:
-          // For now navigated to order confirmation page in both
-          // success and failure scenerios as api endpoint is not working
           navigate(ROUTES.CONFIRMATION);
           dispatch(setOrderStage(2));
         })
         .catch((err) => {
-          // To Be Changed:
-          // For now navigated to order confirmation page in both
-          // success and failure scenerios as api endpoint is not working
-
-          // Comment below code for success page
-          navigate(ROUTES.CONFIRMATION);
-          dispatch(setOrderStage(2));
-
-          // Uncomment below code for error Page
-          // dispatch(setError(err));
+          dispatch(setError(err));
         });
     }
   };

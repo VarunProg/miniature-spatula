@@ -1,21 +1,22 @@
-import axios from 'axios';
+import axios from "axios";
 
 interface ConfirmOrderRequest {
   firstName: string;
   email: string;
-  selectedRecipes: string[];
+  recipes: string[];
 }
 
-export const confirmOrder = (confirmOrderRequest: ConfirmOrderRequest): Promise<any> => 
-  axios.post('https://code-challenge-mid.vercel.app/api/submit', 
-    { 
-      firstName: confirmOrderRequest.firstName, 
-      email: confirmOrderRequest.email, 
-      recipes: [...confirmOrderRequest.selectedRecipes] 
-    },
-    {
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-    }).then(res => res.data);
+export const confirmOrder = (
+  confirmOrderRequest: ConfirmOrderRequest
+): Promise<any> =>
+  axios
+    .post(
+      "https://code-challenge-mid.vercel.app/api/submit",
+      JSON.stringify(confirmOrderRequest),
+      {
+        headers: {
+          "Content-Type": "text/plain",
+        },
+      }
+    )
+    .then((res) => res.data);
