@@ -1,6 +1,11 @@
-import { FC } from "react";
+import classNameNames from "classnames";
+import React, { FC } from "react";
+import { RecipeRecord } from "../../services/recipesService";
 import classes from "./RecipeList.module.scss";
 import classnames from "classnames";
+import MinusIcon from "../../assets/minus.svg";
+import PlusIcon from "../../assets/plus.svg";
+import { Button } from "..";
 
 export const RecipeSkeleton: FC = () => {
   return (
@@ -9,9 +14,15 @@ export const RecipeSkeleton: FC = () => {
       <div className={classes.recipeDetails}>
         <div className={classes.mealType}></div>
         <h2 className={classes.recipeTitle}></h2>
-        <ul className={classes.recipeAttributesLabels}></ul>
+        <ul className={classes.recipeAttributesLabels}>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
       </div>
-      <div className={classes.buttonSection}></div>
+      <div className={classes.buttonSection}>
+        <div></div>
+      </div>
     </div>
   );
 };

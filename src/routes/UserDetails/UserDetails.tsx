@@ -131,7 +131,7 @@ export const UserDetails: FC = () => {
         <label className={classes.pageTitle}>{"Selected Recipes"}</label>
         <ul className={classes.recipeList}>
           {selectedRecipesList.map((recipe, key) => (
-            <li>
+            <li key={`recipeKey_${key}`}>
               <label className={classes.recipeTitle}>
                 {`${key + 1}. ${recipe.title}`}
               </label>
