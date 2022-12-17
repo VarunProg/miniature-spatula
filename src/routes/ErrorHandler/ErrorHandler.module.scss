@@ -2,14 +2,19 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background-color: #fff;
-  padding: 24px;
+  padding: 20px 24px;
+  height: calc(100vh - 400px);
 }
 
 .formActions {
   display: flex;
   justify-content: center;
 }
-  
+
+@media (max-width: 768px) {
+  .errorSection {
+    height: 100%;
+  }
+}

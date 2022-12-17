@@ -1,7 +1,11 @@
-import classNames from 'classnames';
-import React, { FC } from 'react';
-import classes from './Header.module.scss';
+import classNames from "classnames";
+import React, { FC } from "react";
+import classes from "./Header.module.scss";
 
 export const Header: FC = () => {
-  return (<header></header>);
+  return (
+    <header className={classes.header}>
+      <label className={classes.logoName}>{"miniature spatuala"}</label>
+    </header>
+  );
 };

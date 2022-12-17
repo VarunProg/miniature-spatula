@@ -1,19 +1,23 @@
-.notFoundSection{
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #fff;
-    padding: 24px;
-  }
-  
-  .notFoundImg{
-    width: 100%;
-  }
+.notFoundSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding: 0px 24px;
+  height: 100%;
+}
 
-  .formActions {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-  }
+.notFoundImg {
+  width: 100%;
+}
+
+.notFoundImg {
+  width: 100%;
+}
+
+.formActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}

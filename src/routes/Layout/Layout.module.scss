@@ -1,6 +1,11 @@
 .mainContainer {
-    display: flex;
-    max-width: 950px;
-    margin: 0 auto;
-    flex-direction: column;
+  display: flex;
+  max-width: 950px;
+  margin: 0 auto;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+}
+
+.content {
+  flex: 1;
 }
