@@ -1,0 +1,184 @@
+.recipesContainer {
+  display: flex;
+  flex-direction: column;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.pageTitle {
+  margin: 40px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.checkoutContainer {
+  display: flex;
+  background-color: #fff;
+  align-items: baseline;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.infoTxt {
+  flex: 1;
+  height: 40px;
+  font-size: 20px;
+  color: #2d2926;
+  line-height: 1.4;
+}
+
+.recipeListWrapper {
+  overflow: scroll;
+  height: calc(100vh - 280px);
+  padding-right: 10px;
+}
+
+.recipeListContainer {
+  display: flex;
+  max-width: 950px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recipe {
+  width: 220px;
+  background-color: #fff;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.recipeImage {
+  width: 100%;
+}
+
+.recipeDetails {
+  padding: 15px;
+  text-align: left;
+  flex: auto;
+}
+
+.mealType {
+  color: #28b88d;
+  font-size: .75rem;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.recipeTitle {
+  height: 40px;
+  font-size: 20px;
+  color: #2d2926;
+  line-height: 1.4;
+}
+
+.recipeAttributesLabels {
+  color: #716d6a;
+  font-family: Arial,sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+  list-style: none;
+  margin: 0 0 10px;
+  padding: 0px;
+}
+
+.recipeAttributesLabels li{
+  margin: 0 10px 5px 0;
+  background-color: #f6f6f6;
+  color: #716d6a;
+  display: inline-block;
+  font-size: 10px;
+  font-family: Arial,sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  padding: 5px;
+  text-transform: uppercase
+}
+
+.recipeAttributesLabels li a {
+  text-decoration: none;
+  color: #716d6a;
+}
+
+.buttonSection {
+  padding: 10px;
+  display: flex;
+}
+
+.minusIcon, .plusIcon {
+  background-color: transparent;
+  border: none;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+$layout-breakpoint-md: 959px;
+$layout-breakpoint-xs: 622px;
+
+@media (max-width: $layout-breakpoint-md) {
+  .recipe {
+    width: 48%;
+  }
+}
+
+@media (max-width: $layout-breakpoint-xs) {
+  .recipe {
+    width: 100%;
+  }
+  .checkoutContainer {
+    flex-direction: column;
+    align-items: center;
+    button {
+      margin-top: 20px;
+    }
+  }
+  .buttonSection {
+    justify-content: space-around;
+  }
+}
+
+
+.recipe.isLoading {
+  .image, .mealType, .recipeTitle, .buttonSection div {
+    background: #eee;
+    background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+    border-radius: 5px;
+    background-size: 200% 100%;
+    animation: 1.5s shine linear infinite;
+  }
+
+  .image {
+    height: 180px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .recipeDetails {
+    height: 200px;
+  }
+
+  .mealType {
+    height: 20px;
+    width: 100px;
+  }
+
+  .recipeTitle {
+    height: 30px;
+  }
+
+  li {
+    height: 30px;
+    width: 100%;
+    padding: 0;
+  }
+
+  .buttonSection div {
+    height: 30px;
+    width: 300%;
+  }
+}
