@@ -1,0 +1,19 @@
+.notFoundSection{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    padding: 24px;
+  }
+  
+  .notFoundImg{
+    width: 100%;
+  }
+
+  .formActions {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+  }
