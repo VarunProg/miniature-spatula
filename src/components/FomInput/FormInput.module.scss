@@ -1,0 +1,31 @@
+.formGroup{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.formControl {
+  border-radius: 4px;
+  border: 1px solid #dadad9;
+  box-shadow: none;
+  color: #2d2926;
+  padding: 9px 16px;
+  height: 2rem;
+  margin: 5px 0;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+.formLabel {
+  color: #4d4d4d;
+  display: block;
+} 
+
+.errorLabel {
+  color: red;
+  display: block;
+} 
